@@ -1,0 +1,366 @@
+/* Definições Globais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #F0F0F0; /* Texto claro para fundo escuro */
+    background-color: #1A1A1A; /* Fundo principal escuro */
+    padding-top: 60px; /* Espaço para o header fixo */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h2, h3 {
+    color: #C8A232; /* Títulos em Dourado */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #C8A232; /* Links em Dourado */
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #FFD700; /* Dourado mais claro no hover */
+}
+
+/* --- BARRA DE REDES SOCIAIS LATERAL --- */
+.social-bar {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    background-color: #121212; /* Fundo muito escuro */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.social-bar a {
+    padding: 10px 15px;
+    color: #F0F0F0; /* Ícones brancos */
+    font-size: 1.5em;
+    transition: background-color 0.3s;
+}
+
+.social-bar a:hover {
+    background-color: #C8A232; /* Dourado no hover */
+    color: #121212; /* Texto escuro no hover */
+}
+
+
+/* --- HEADER E NAVEGAÇÃO --- */
+header {
+    background-color: #121212;
+    color: #F0F0F0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #C8A232; /* Logo em Dourado */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    color: #F0F0F0; /* Links brancos */
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 0;
+}
+
+header nav ul li a:hover {
+    color: #C8A232; /* Dourado no hover */
+    border-bottom: 2px solid #C8A232;
+}
+
+.menu-toggle {
+    display: none; 
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #C8A232;
+}
+
+/* --- ESTILOS DE BOTÃO --- */
+.btn-primary {
+    display: inline-block;
+    background-color: #C8A232; /* Botão principal em Dourado */
+    color: #121212; /* Texto escuro no botão Dourado */
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #FFD700;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: #444; /* Botão secundário em cinza escuro */
+    color: #F0F0F0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #C8A232;
+    color: #121212;
+}
+
+
+/* --- SEÇÃO INÍCIO (HERO) --- */
+.hero {
+    background: url('placeholder_barber_hero.jpg') no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9); /* Sombra mais escura para contraste */
+}
+
+.hero h2 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #C8A232; /* Título principal em Dourado */
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #F0F0F0;
+}
+
+
+/* --- SEÇÕES DE CONTEÚDO --- */
+.content-section {
+    padding: 60px 0;
+}
+
+.about-section {
+    background-color: #1A1A1A; /* Fundo da seção Sobre */
+    text-align: center;
+}
+
+/* SEÇÃO SERVIÇOS */
+.services-section {
+    background-color: #121212; /* Fundo da seção Serviços */
+}
+
+.service-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service-item {
+    background-color: #252525; /* Fundo dos cards de serviço */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    border: 1px solid #C8A232; /* Borda dourada no hover */
+}
+
+.service-item h4 {
+    color: #C8A232; /* Títulos dos serviços em Dourado */
+    margin-top: 10px;
+    font-size: 1.3em;
+}
+
+.service-item .price {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #FFD700; /* Preço em Dourado mais claro */
+}
+
+/* SEÇÃO AGENDAMENTO */
+.booking-section {
+    background-color: #1A1A1A;
+    padding-bottom: 100px;
+}
+
+#booking-form {
+    max-width: 450px;
+    margin: 0 auto;
+    background-color: #252525; /* Fundo do formulário */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #C8A232; /* Labels do formulário em Dourado */
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    background-color: #121212; /* Fundo dos campos escuro */
+    color: #F0F0F0;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Status do Pagamento */
+.payment-status {
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px solid #C8A232;
+    border-radius: 8px;
+    background-color: #252525;
+    text-align: center;
+    color: #F0F0F0;
+}
+
+.payment-status h4 {
+    color: #C8A232;
+}
+
+/* SEÇÃO CONTATO */
+.contact-section {
+    background-color: #121212;
+    color: #F0F0F0;
+    text-align: center;
+}
+
+.contact-section h3 {
+    color: #C8A232;
+}
+
+.contact-section p {
+    margin: 10px 0;
+}
+
+.contact-section i {
+    margin-right: 10px;
+    color: #C8A232;
+}
+
+
+/* --- RODAPÉ --- */
+footer {
+    background-color: #121212;
+    color: #F0F0F0;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+/* --- MEDIA QUERIES (Responsividade) --- */
+@media (max-width: 768px) {
+    /* Header */
+    header nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    header nav.active {
+        display: flex;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        color: #C8A232;
+    }
+    
+    /* Hero */
+    .hero {
+        height: 60vh;
+    }
+
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+    
+    /* Serviços */
+    .service-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-item {
+        width: 90%;
+        max-width: 350px;
+    }
+}

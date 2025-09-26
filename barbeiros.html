@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhandereko - Barbeiros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Globais (Mantendo o padrão Nhandereko) */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f5f0;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Menu Superior */
+        header {
+            background-color: #8c2f1f;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Wrapper para alinhar Menu Principal e Redes Sociais no Header */
+        .nav-and-social {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu-principal ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .menu-principal li {
+            margin-left: 20px;
+        }
+
+        .menu-principal a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu-principal a:hover {
+            color: #e9b384;
+        }
+        
+        /* Estilos dos Ícones Sociais no Header */
+        .social-icons-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-icons-header a {
+            color: #fff;
+            font-size: 1.5em; 
+            transition: color 0.3s;
+        }
+        
+        .social-icons-header a:hover {
+            color: #e9b384;
+        }
+
+
+        /* Menu de Opções (abaixo do header) */
+        .options-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            padding: 20px 0;
+            background-color: #f0ead6;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .options-menu a {
+            background-color: #8c2f1f;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .options-menu a:hover {
+            background-color: #6a2419;
+        }
+
+        /* Estilo do botão do Chatbot no menu */
+        .chatbot-button {
+            display: flex;
+            align-items: center;
+            gap: 8px; 
+            cursor: pointer;
+        }
+        
+        .chatbot-gif-icon {
+            width: 25px; 
+            height: 25px;
+            border-radius: 50%;
+        }
+
+        /* Conteúdo Principal */
+        main {
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        main h1 {
+            color: #8c2f1f;
+            margin-bottom: 40px;
+        }
+
+        /* --- Estilos da Galeria de Barbeiros --- */
+        .barbeiros-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .barbeiro-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .barbeiro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .barbeiro-card h2 {
+            font-size: 1.8em;
+            color: #8c2f1f;
+            margin-bottom: 15px;
+        }
+
+        .barbeiro-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%; /* Foto redonda */
+            border: 5px solid #e9b384; /* Borda da cor de destaque */
+            margin-bottom: 15px;
+        }
+        
+        .barbeiro-card p {
+            font-style: italic;
+            color: #6a2419;
+            margin-bottom: 15px;
+        }
+
+        .barbeiro-card a {
+            display: inline-block;
+            background-color: #8c2f1f;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .barbeiro-card a:hover {
+            background-color: #6a2419;
+        }
+
+
+        /* Rodapé */
+        footer {
+            background-color: #6a2419;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .copyright {
+            margin-top: 10px;
+        }
+
+        /* Pop-up Style (Mantido para o Chatbot) */
+        .popup-container {
+            display: none; 
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .popup-content a {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #8c2f1f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Nhandereko</a>
+            
+            <div class="nav-and-social">
+                <nav class="menu-principal">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="faleconosco.html">Fale Conosco</a></li>
+                        <li><a href="etnoturismo.html">Etnoturismo</a></li>
+                        <li><a href="galeria.html">Galeria de Fotos</a></li>
+                        <li><a href="volunturismo.html">Volunturismo</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="social-icons-header">
+                    <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="options-menu">
+        <a href="hospedagem.html" class="option-button">Visitações</a>
+        <a href="#" class="option-button">Passeios</a>
+        <a href="#" class="option-button">Artesanatos</a>
+        
+        <a href="#" class="option-button chatbot-button" id="chatbot-gif">
+            <p style="margin: 0; font-weight: bold;">Fale Comigo!</p>
+            <img src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-gif-icon">
+        </a>
+    </div>
+
+    <main>
+        <div class="container">
+            <h1>Nossos Especialistas em Corte</h1>
+            
+            <div class="barbeiros-gallery">
+                
+                <div class="barbeiro-card">
+                    <h2>João Silva</h2>
+                    <img src="joao.jpeg" alt="Foto do Barbeiro João Silva">
+                    <p>Especialista em cortes clássicos e barba na navalha. Mais de 10 anos de experiência.</p>
+                    <a href="index.html#agendamento">Agendar com João</a>
+                </div>
+                
+                <div class="barbeiro-card">
+                    <h2>Pedro Costa</h2>
+                    <img src="pedro.jpeg" alt="Foto do Barbeiro Pedro Costa">
+                    <p>Mestre em técnicas modernas, como *fade* e *undercut*. Sempre atualizado nas tendências.</p>
+                    <a href="index.html#agendamento">Agendar com Pedro</a>
+                </div>
+                
+                <div class="barbeiro-card">
+                    <h2>Rafaela Santos</h2>
+                    <img src="rafaela.jpeg" alt="Foto da Barbeira Rafaela Santos">
+                    <p>Visagista com foco em harmonização facial e tratamentos capilares.</p>
+                    <a href="index.html#agendamento">Agendar com Rafaela</a>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="copyright">&copy; 2024 Nhandereko. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <div id="popup" class="popup-container">
+        <div class="popup-content">
+            <span class="close-btn" id="close-popup">&times;</span>
+            <h2>Nhandereko Bot</h2>
+            <p>Para interagir com o nosso bot no Telegram, clique no botão abaixo.</p>
+            <a href="https://t.me/nhanderebot" target="_blank">Conversar com o Bot</a>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const chatbotGif = document.getElementById('chatbot-gif'); 
+            const popup = document.getElementById('popup');
+            const closeBtn = document.getElementById('close-popup');
+
+            if (chatbotGif && popup && closeBtn) {
+                // Abre o pop-up ao clicar no novo botão
+                chatbotGif.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    popup.style.display = 'flex';
+                });
+
+                // Fecha o pop-up ao clicar no botão de fechar
+                closeBtn.addEventListener('click', () => {
+                    popup.style.display = 'none';
+                });
+
+                // Fecha o pop-up ao clicar fora dele
+                window.addEventListener('click', (event) => {
+                    if (event.target === popup) {
+                        popup.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
